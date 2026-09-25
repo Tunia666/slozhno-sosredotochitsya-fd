@@ -1,10 +1,12 @@
+/* Основные стили проекта. Базовая тема — тёмная. Подход — Mobile First. */
+
 .page {
-  color: var(--text-color);
-  font-family: var(--main-font);
-  font-size: var(--main-font-size);
-  line-height: var(--line-height);
-  background-color: var(--page-bg-color);
-  background-image: var(--page-bg-image);
+  color: var(--main-text-color, #f1b2ce);
+  font-family: var(--main-font, monospace);
+  font-size: var(--main-font-size, 18px);
+  line-height: var(--main-line-height, 1.3);
+  background-color: var(--page-background-color, #000028);
+  background-image: var(--page-background-image);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -13,8 +15,8 @@
 .header,
 .footer {
   position: relative;
-  min-block-size: 668px;
   block-size: 100vh;
+  min-block-size: 668px;
 }
 
 .header {
@@ -26,11 +28,12 @@
 
 .header__rec {
   position: absolute;
-  inset: 10px 38px auto auto;
-  display: var(--rec-display);
+  inset-block-start: 10px;
+  inset-inline-end: 38px;
+  display: var(--rec-display, flex);
   align-items: center;
   gap: 10px;
-  color: var(--accent-color);
+  color: var(--accent-color, #ff0070);
   text-transform: uppercase;
 }
 
@@ -39,8 +42,8 @@
   inline-size: 9px;
   block-size: 9px;
   border-radius: 50%;
-  background-color: var(--accent-color);
-  box-shadow: 0 0 4px 2px var(--accent-color);
+  background-color: currentColor;
+  box-shadow: 0 0 4px 2px currentColor;
 }
 
 .decorated-zone::before,
@@ -49,24 +52,26 @@
   position: absolute;
   inline-size: 25px;
   block-size: 25px;
-  color: var(--button-color);
+  color: var(--interactive-color, #ff0070);
 }
 
 .decorated-zone::before {
-  inset: 10px 10px auto auto;
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
   border-block-start: 1px solid currentColor;
   border-inline-end: 1px solid currentColor;
 }
 
 .decorated-zone::after {
-  inset: auto auto 10px 10px;
+  inset-block-end: 10px;
+  inset-inline-start: 10px;
   border-block-end: 1px solid currentColor;
   border-inline-start: 1px solid currentColor;
 }
 
 .header__theme-menu {
-  justify-self: end;
   align-self: center;
+  justify-self: end;
 }
 
 .header__theme-menu-list {
@@ -80,14 +85,14 @@
   min-inline-size: 70px;
   border: 1px solid transparent;
   padding: 1px 13px;
-  color: var(--button-color);
+  color: var(--interactive-color, #ff0070);
   background-color: transparent;
   text-transform: lowercase;
   cursor: pointer;
 }
 
 .header__theme-menu-button:hover {
-  border-color: var(--button-hover-color);
+  border-color: var(--interactive-hover-color, rgb(255 0 112 / 0.4));
 }
 
 .header__theme-menu-button:focus {
@@ -105,10 +110,10 @@
 
 .header__title,
 .footer__title {
-  color: var(--title-color);
+  color: var(--title-color, #db00ff);
   font-weight: 700;
   line-height: 0.825;
-  text-shadow: 4px 4px 0 var(--accent-color);
+  text-shadow: 4px 4px 0 var(--accent-color, #ff0070);
 }
 
 .header__title {
@@ -122,16 +127,21 @@
   inline-size: min(100%, 355px);
 }
 
+.header__text-line {
+  display: block;
+}
+
 .title-decor {
-  color: var(--accent-text-color);
+  color: var(--accent-text-color, #000028);
   font-weight: 700;
-  background-color: var(--accent-color);
+  background-color: var(--accent-color, #ff0070);
 }
 
 .content {
   display: grid;
   gap: 50px;
-  padding: 40px 10px;
+  padding-block: 40px;
+  padding-inline: 10px;
 }
 
 .content-section {
@@ -140,7 +150,7 @@
 }
 
 .content-section__title {
-  color: var(--section-title-color);
+  color: var(--section-title-color, #ff0070);
   font-size: inherit;
   line-height: inherit;
 }
@@ -156,7 +166,8 @@
 }
 
 .content-card__title,
-.content-card__subtitle {
+.content-card__subtitle,
+.gallery-section__title {
   font-size: inherit;
   line-height: inherit;
 }
@@ -166,12 +177,12 @@
 }
 
 .content-card__text {
-  color: var(--text-color);
+  color: var(--main-text-color, #f1b2ce);
 }
 
 .text-link {
   text-decoration: none;
-  text-shadow: 2px 2px 0 var(--link-shadow-color);
+  text-shadow: 2px 2px 0 var(--link-shadow-color, #ff0070);
 }
 
 .text-link:hover {
@@ -190,11 +201,6 @@
 .gallery-section {
   display: grid;
   gap: 10px;
-}
-
-.gallery-section__title {
-  font-size: inherit;
-  line-height: inherit;
 }
 
 .gallery {
@@ -230,16 +236,19 @@
     padding: 20px;
   }
 
+  .header__rec {
+    inset-block-start: 20px;
+    inset-inline-end: 48px;
+  }
+
   .decorated-zone::before {
-    inset: 20px 20px auto auto;
+    inset-block-start: 20px;
+    inset-inline-end: 20px;
   }
 
   .decorated-zone::after {
-    inset: auto auto 20px 20px;
-  }
-
-  .header__rec {
-    inset: 20px 48px auto auto;
+    inset-block-end: 20px;
+    inset-inline-start: 20px;
   }
 
   .header__title,
@@ -257,7 +266,8 @@
 
   .content {
     gap: 80px;
-    padding: 60px 20px;
+    padding-block: 60px;
+    padding-inline: 20px;
   }
 
   .content-section {
@@ -318,8 +328,8 @@
   }
 
   .header__theme-menu {
-    justify-self: center;
     align-self: start;
+    justify-self: center;
   }
 
   .header__theme-menu-list {
@@ -329,10 +339,6 @@
 
   .header__text {
     inline-size: 491px;
-  }
-
-  .content-section_type_cards {
-    grid-template-columns: 1fr;
   }
 
   .content-section_type_cards .content-section__body_cards {

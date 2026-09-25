@@ -1,19 +1,19 @@
-:root{
-  --main-font:"IBM Plex Mono", monospace;
+/* Переменные основной тёмной темы */
+
+:root {
+  --main-font: "IBM Plex mono", monospace;
   --main-font-size: 18px;
-  --line-height: 1.3;
+  --main-line-height: 1.3;
 
-  --page-bg-color:#000028;
-  --text-color: #f1b2ce;
+  --page-background-color: #000028;
+  --page-background-image: url("../images/cover-image-dark.png");
+  --main-text-color: #f1b2ce;
   --accent-color: #ff0070;
-  --accent-text-color:#000028;
-  --title-color:#db00ff;
-  --section-title-color:#ff0070;
-  --button-color:#ff0070;
-  --button-hover-color:rgb(255 0 112 / 0.4);
-  --link-shadow-color:#ff0070;
+  --accent-text-color: #000028;
+  --title-color: #db00ff;
+  --section-title-color: #ff0070;
+  --interactive-color: #ff0070;
+  --interactive-hover-color: rgb(255 0 112 / 0.4);
+  --link-shadow-color: #ff0070;
   --rec-display: flex;
-
-  --page-bg-image: url(https: //raw.githubusercontent.com/yandex-praktikum/slozhno-sosredotochitsya-fd/main/images/cover-image-dark.png);
-
 }
