@@ -1,4 +1,4 @@
-/* Глобальные стили для проекта, их можно дополнять и менять по желанию */
+/* Глобальные стили проекта */
 
 *,
 *::before,
@@ -28,15 +28,21 @@ ul {
   list-style: none;
 }
 
-picture {
-  margin: 0;
-  padding: 0;
-}
-
 button,
 a {
   color: currentColor;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
 }
