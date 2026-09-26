@@ -7,12 +7,14 @@
   line-height: var(--main-line-height, 1.3);
   background-color: var(--page-background-color, #000028);
   background-image: var(--page-background-image,
-        url("../images/cover-image-dark.png"));
+      url("../images/cover-image-dark.png"));
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
-/* Первый и последний экран на всю высоту */
+
+/* Шапка и подвал */
+
 .header,
 .footer {
   position: relative;
@@ -20,24 +22,28 @@
   min-block-size: 668px;
 }
 
+/* Шапка */
+
 .header {
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
   align-items: center;
   padding: 10px;
 }
-/* Надпись REC */
+
+/* Декоративный элемент REC */
+
 .header__rec {
   position: absolute;
   inset-block-start: 10px;
-  inset-inline-end: 38px;
+  inset-inline-end: 20px;
   display: var(--rec-display, flex);
   align-items: center;
   gap: 10px;
   color: var(--accent-color, #ff0070);
   text-transform: uppercase;
 }
-/* Точка возле REC */
+
 .header__rec::after {
   content: "";
   inline-size: 9px;
@@ -46,7 +52,9 @@
   background-color: currentColor;
   box-shadow: 0 0 4px 2px currentColor;
 }
+
 /* Декоративные уголки */
+
 .decorated-zone::before,
 .decorated-zone::after {
   content: "";
@@ -69,6 +77,8 @@
   border-block-end: 1px solid currentColor;
   border-inline-start: 1px solid currentColor;
 }
+
+/* Переключатель темы */
 
 .header__theme-menu {
   align-self: center;
@@ -99,7 +109,7 @@
 .header__theme-menu-button:focus {
   outline: none;
 }
-/* Фокус с клавиатуры */
+
 .header__theme-menu-button:focus-visible {
   border-block-end-color: currentColor;
 }
@@ -108,6 +118,8 @@
   border-color: currentColor;
   pointer-events: none;
 }
+
+/* Заголовки */
 
 .header__title,
 .footer__title {
@@ -119,7 +131,8 @@
 
 .header__title {
   justify-self: start;
-    /* Адаптивный размер заголовка */
+
+  /* Для мобильных */
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
 }
 
@@ -133,11 +146,15 @@
   display: block;
 }
 
+/* Декоративные заголовки */
+
 .title-decor {
   color: var(--accent-text-color, #000028);
   font-weight: 700;
   background-color: var(--accent-color, #ff0070);
 }
+
+/* Основной контент */
 
 .content {
   display: grid;
@@ -162,8 +179,11 @@
   gap: 20px;
 }
 
+/* Карточки */
+
 .content-card {
   display: grid;
+  align-content: start;
   gap: 10px;
 }
 
@@ -181,6 +201,8 @@
 .content-card__text {
   color: var(--main-text-color, #f1b2ce);
 }
+
+/* Ссылки */
 
 .text-link {
   text-decoration: none;
@@ -200,6 +222,8 @@
   outline-offset: 1px;
 }
 
+/* Галерея */
+
 .gallery-section {
   display: grid;
   gap: 10px;
@@ -213,14 +237,14 @@
 .gallery__image {
   inline-size: 100%;
   block-size: 100%;
-  /* Картинка заполняет ячейку */
   object-fit: cover;
   object-position: center;
 }
 
+/* Подвал */
+
 .footer {
   display: grid;
-  /* Центрирование по двум осям */
   place-items: center;
   padding: 10px;
 }
@@ -228,21 +252,17 @@
 .footer__title {
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
 }
-/* Планшет */
+
+/* Для планшета и десктопа */
+
 @media (width >=768px) {
-
-  .header,
-  .footer {
-    min-block-size: 1024px;
-  }
-
   .header {
     padding: 20px;
   }
 
   .header__rec {
     inset-block-start: 20px;
-    inset-inline-end: 48px;
+    inset-inline-end: 28px;
   }
 
   .decorated-zone::before {
@@ -255,6 +275,7 @@
     inset-inline-start: 20px;
   }
 
+  /* Для планшета и десктопа */
   .header__title,
   .footer__title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
@@ -289,7 +310,7 @@
   .gallery-section {
     gap: 20px;
   }
-  /* Галерея в три колонки */
+
   .gallery {
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: minmax(192px, auto);
@@ -323,14 +344,16 @@
     padding: 20px;
   }
 }
-/* Десктоп */
+
+/* Для десктопа */
+
 @media (width >=1024px) {
 
   .header,
   .footer {
     min-block-size: 768px;
   }
-    /* Меню переносится наверх по центру */
+
   .header__theme-menu {
     align-self: start;
     justify-self: center;
@@ -344,7 +367,7 @@
   .header__text {
     inline-size: 491px;
   }
-    /* Карточки в три колонки */
+
   .content-section_type_cards .content-section__body_cards {
     grid-template-columns: repeat(3, 1fr);
   }
